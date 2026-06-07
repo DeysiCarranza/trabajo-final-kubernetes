@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  APP_NAME: "Trabajo Final Kubernetes"
+  APP_ENV: "Produccion"
+
