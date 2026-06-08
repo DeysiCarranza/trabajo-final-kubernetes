@@ -1,5 +1,5 @@
 # trabajo-final-kubernetes
-# 🚀 Trabajo Final Integrador - Kubernetes
+# 🚀 Trabajo Final  - Kubernetes
 
 ## 📖 Descripción del Proyecto
 
