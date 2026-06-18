@@ -7,19 +7,19 @@ echo "===== MONITOREO DEL CLUSTER ====="
 echo ""
 
 echo "Nodos:"
-sudo kubectl get nodes
+kubectl get nodes
 
 echo ""
 echo "Deployments:"
-sudo kubectl get deployments
+kubectl get deployments
 
 echo ""
 echo "Pods:"
-sudo kubectl get pods
+kubectl get pods
 
 echo ""
 echo "Services:"
-sudo kubectl get services
+kubectl get services
 
 echo ""
 echo "Monitoreo finalizado."

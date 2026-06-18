@@ -9,7 +9,7 @@ El objetivo de esta etapa fue validar el correcto funcionamiento del clúster Ku
 Una vez finalizada la instalación de K3s, se verificó el estado del nodo utilizando el comando:
 
 ```bash
-sudo kubectl get nodes
+kubectl get nodes
 ```
 
 El resultado indicó que el nodo se encontraba en estado **Ready**, confirmando que el clúster se encontraba operativo y preparado para recibir cargas de trabajo.
@@ -19,7 +19,7 @@ El resultado indicó que el nodo se encontraba en estado **Ready**, confirmando 
 Posteriormente se verificó el estado de los componentes internos de Kubernetes mediante:
 
 ```bash
-sudo kubectl get pods -A
+kubectl get pods -A
 ```
 
 Los pods correspondientes a los servicios internos del sistema se encontraban en estado **Running**, lo que confirmó el correcto funcionamiento de la instalación.
@@ -33,14 +33,14 @@ Para la primera prueba se seleccionó la imagen oficial de Nginx debido a su sim
 El Deployment fue creado mediante el siguiente comando:
 
 ```bash
-sudo kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=nginx
 ```
 
 Posteriormente se verificó la correcta creación del Deployment y del pod asociado utilizando:
 
 ```bash
-sudo kubectl get deployments
-sudo kubectl get pods
+kubectl get deployments
+kubectl get pods
 ```
 
 La aplicación fue desplegada correctamente y el pod se encontró en estado **Running**.
@@ -52,13 +52,13 @@ La aplicación fue desplegada correctamente y el pod se encontró en estado **Ru
 Con el objetivo de permitir el acceso a la aplicación desde la red, se creó un servicio de tipo NodePort mediante:
 
 ```bash
-sudo kubectl expose deployment nginx --port=80 --type=NodePort
+kubectl expose deployment nginx --port=80 --type=NodePort
 ```
 
 La configuración fue verificada utilizando:
 
 ```bash
-sudo kubectl get services
+kubectl get services
 ```
 
 El servicio fue creado correctamente y quedó asociado al Deployment de Nginx.
@@ -70,14 +70,14 @@ El servicio fue creado correctamente y quedó asociado al Deployment de Nginx.
 Para implementar una configuración con mayor disponibilidad, el Deployment fue escalado a tres réplicas mediante:
 
 ```bash
-sudo kubectl scale deployment nginx --replicas=3
+kubectl scale deployment nginx --replicas=3
 ```
 
 Posteriormente se verificó la existencia de tres pods activos mediante:
 
 ```bash
-sudo kubectl get deployments
-sudo kubectl get pods
+kubectl get deployments
+kubectl get pods
 ```
 
 El Deployment mostró tres réplicas disponibles y los tres pods se encontraron en estado Running.
@@ -89,7 +89,7 @@ El Deployment mostró tres réplicas disponibles y los tres pods se encontraron 
 Con el fin de demostrar la capacidad de recuperación automática de Kubernetes, se eliminó manualmente uno de los pods pertenecientes al Deployment.
 
 ```bash
-sudo kubectl delete pod nginx-56c45fd5ff-g5hvl
+kubectl delete pod nginx-56c45fd5ff-g5hvl
 ```
 
 Luego de la eliminación, Kubernetes detectó que la cantidad de réplicas en ejecución era inferior a la definida en la configuración del Deployment. Como resultado, el sistema creó automáticamente una nueva instancia para restaurar el estado deseado.
